@@ -5,7 +5,7 @@ import android.text.SpannableStringBuilder
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_edit.*
 import kotlinx.android.synthetic.main.activity_main.button_submit
-import nyc.ignitelabs.civicduty.Constants.KEY_ADDRESS
+import nyc.ignitelabs.civicduty.Constants
 import nyc.ignitelabs.civicduty.R
 import nyc.ignitelabs.civicduty.addressEditSuccessIntent
 
@@ -22,6 +22,6 @@ class EditActivity : AppCompatActivity() {
             this@EditActivity.finish()
         }
 
-        address_edit.text = SpannableStringBuilder(intent?.getStringExtra(KEY_ADDRESS))
+        address_edit.text = SpannableStringBuilder(intent?.getStringExtra(Constants.KEY_ADDRESS))
     }
 }
