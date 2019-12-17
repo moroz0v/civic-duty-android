@@ -6,6 +6,7 @@ import android.text.SpannableStringBuilder
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import nyc.ignitelabs.civicduty.Constants.KEY_ADDRESS
 import nyc.ignitelabs.civicduty.R
 
 
@@ -28,17 +29,13 @@ class EditActivity : AppCompatActivity() {
 
             val data = Intent()
 
-            data.putExtra("address", addressText.toString())
+            data.putExtra(KEY_ADDRESS, addressText.toString())
 
             setResult(RESULT_OK, data)
 
-            end()
+            this@EditActivity.finish()
         }
 
-        address?.text = SpannableStringBuilder(intent?.getStringExtra("address"))
-    }
-
-    fun end(){
-        finish()
+        address?.text = SpannableStringBuilder(intent?.getStringExtra(KEY_ADDRESS))
     }
 }

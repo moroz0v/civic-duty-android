@@ -6,7 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import nyc.ignitelabs.civicduty.Constants
+import nyc.ignitelabs.civicduty.Constants.CODE_REQUEST_ADDRESS
 import nyc.ignitelabs.civicduty.R
+import nyc.ignitelabs.civicduty.addressEditIntent
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,27 +24,23 @@ class MainActivity : AppCompatActivity() {
         val submitButton = findViewById<Button>(R.id.button_submit)
 
         submitButton.setOnClickListener {
-            var text = textView?.text.toString()
-
-            var editIntent =  Intent(this@MainActivity, EditActivity::class.java)
-
-            editIntent.putExtra("address", text)
-
-            startActivityForResult( editIntent, 4)
+            startActivityForResult(
+                addressEditIntent(this@MainActivity, textView?.text.toString()), CODE_REQUEST_ADDRESS)
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
-        when( requestCode ){
-            4 -> navigate( resultCode, data)
+        if( resultCode != Activity.RESULT_OK ){
+            //TODO: handle error
+            return
         }
-    }
 
-    fun navigate( resultCode: Int, data: Intent?){
-        if( resultCode == Activity.RESULT_OK) {
-            textView?.text = data?.getStringExtra("address")
+        when( requestCode ){
+            CODE_REQUEST_ADDRESS ->
+               textView?.text = data?.getStringExtra(Constants.KEY_ADDRESS)
+
         }
     }
 }
