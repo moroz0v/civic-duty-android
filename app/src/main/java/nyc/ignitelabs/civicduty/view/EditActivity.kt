@@ -9,7 +9,6 @@ import nyc.ignitelabs.civicduty.Constants.KEY_ADDRESS
 import nyc.ignitelabs.civicduty.R
 import nyc.ignitelabs.civicduty.addressEditSuccessIntent
 
-
 class EditActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

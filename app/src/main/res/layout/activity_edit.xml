@@ -17,13 +17,14 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:importantForAutofill="no"
+            android:hint="@string/edit_address"
             android:inputType="textPostalAddress"/>
 
     <Button
             android:id="@+id/button_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_submit"
+            android:text="@string/button_save"
             app:layout_constraintLeft_toLeftOf="@id/address_edit"
             app:layout_constraintRight_toRightOf="@id/address_edit"
             app:layout_constraintTop_toBottomOf="@+id/address_edit"/>
