@@ -29,16 +29,12 @@ dependencies {
     def appCompatVersion = "1.2.0-alpha01" // do not update until https://issuetracker.google.com/issues/141132133 has been fixed
     def cardViewVersion = "1.0.0"
     def constraintLayoutVersion = "1.1.3"
-    def butterKnifeVersion = "10.0.0"
     def leakCanaryVersion = "2.0-beta-2"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${kotlin_version}"
     implementation "androidx.appcompat:appcompat:${appCompatVersion}"
     implementation "androidx.cardview:cardview:${cardViewVersion}"
     implementation "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}"
-
-    implementation "com.jakewharton:butterknife:${butterKnifeVersion}"
-    annotationProcessor "com.jakewharton:butterknife-compiler:${butterKnifeVersion}"
 
     implementation "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}"
 
