@@ -19,7 +19,8 @@ class MainActivity : AppCompatActivity() {
 
         button_submit.setOnClickListener {
             startActivityForResult(
-                addressEditIntent(this@MainActivity, address.text.toString()), CODE_REQUEST_ADDRESS)
+                addressEditIntent(this@MainActivity, address.text.toString()),
+                CODE_REQUEST_ADDRESS)
         }
     }
 
