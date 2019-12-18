@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 def envSecretsFile = rootProject.file(".env")
 
+def CIVIC_API_KEY = 'CIVIC_API_KEY'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -22,7 +24,7 @@ android {
 
             props.load(new FileInputStream(envSecretsFile))
 
-            buildConfigField 'String', 'CIVIC_API_KEY', props['CIVIC_API_KEY']
+            buildConfigField 'String', CIVIC_API_KEY, props[CIVIC_API_KEY]
         } else {
             throw new GradleException(
                     "Please add required values to the .env " +
