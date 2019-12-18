@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+def envSecretsFile = rootProject.file(".env")
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -14,6 +16,18 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        if (envSecretsFile.exists() ) {
+            def props = new Properties()
+
+            props.load(new FileInputStream(envSecretsFile))
+
+            buildConfigField 'String', 'CIVIC_API_KEY', props['CIVIC_API_KEY']
+        } else {
+            throw new GradleException(
+                    "Please add required values to the .env " +
+                            "file and drop it into the root directory")
+        }
     }
     buildTypes {
         release {
