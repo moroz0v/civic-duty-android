@@ -5,10 +5,10 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.EditActivity">
+        tools:context=".MainActivity">
 
     <EditText
-            android:id="@+id/address_edit"
+            android:id="@+id/address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hello World!"
@@ -17,16 +17,14 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:importantForAutofill="no"
-            android:hint="@string/edit_address"
-            android:inputType="textPostalAddress"/>
+            android:inputType="text"/>
 
     <Button
-            android:id="@+id/button_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/button_save"
-            app:layout_constraintLeft_toLeftOf="@id/address_edit"
-            app:layout_constraintRight_toRightOf="@id/address_edit"
-            app:layout_constraintTop_toBottomOf="@+id/address_edit"/>
+            android:text="@string/button_submit"
+            app:layout_constraintLeft_toLeftOf="@id/address"
+            app:layout_constraintRight_toRightOf="@id/address"
+            app:layout_constraintTop_toBottomOf="@+id/address"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
