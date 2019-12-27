@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import nyc.ignitelabs.civicduty.R
 import nyc.ignitelabs.civicduty.databinding.FragmentAddressDetailsBinding
 import nyc.ignitelabs.civicduty.address.viewmodel.AddressViewModel
@@ -25,5 +26,13 @@ class AddressDetailsFragment : Fragment() {
         binding.vm = vm
 
         return binding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        vm.representatives.observe(viewLifecycleOwner, Observer {
+            val reps = it
+        })
     }
 }

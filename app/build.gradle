@@ -43,6 +43,14 @@ android {
     testOptions {
         unitTests.returnDefaultValues = true
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
 }
 
 dependencies {
@@ -55,6 +63,7 @@ dependencies {
     def leakCanaryVersion = "2.0-beta-2"
     def archLifecycleVersion = "2.2.0-rc03"
     def nav_version = "2.1.0"
+    def retrofit = "2.7.0"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
@@ -69,9 +78,17 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$archLifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-process:$archLifecycleVersion"
 
+    implementation "com.squareup.retrofit2:retrofit:$retrofit"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.2.1"
+
     // Kotlin
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+//    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0-rc03"
+//    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.2.0-rc03"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0-rc03"
 
     kapt 'com.android.databinding:compiler:3.4.2'
 
