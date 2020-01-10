@@ -19,7 +19,9 @@ class AddressActivity : AppCompatActivity() {
         setContentView(R.layout.activity_address)
 
         viewModel.error.observe(this, Observer {
-            displayErrorMessage(it)
+            if( it != null ) {
+                displayErrorMessage(it)
+            }
         })
 
         viewModel.navigate.observe(this, Observer {
@@ -28,10 +30,7 @@ class AddressActivity : AppCompatActivity() {
     }
 
     private fun displayErrorMessage(error: DisplayableError) {
-        when(error.type){
-            DisplayableError.ErrorType.GENERAL ->
-                Toast.makeText(this, getString(R.string.error_general), Toast.LENGTH_LONG).show()
-            DisplayableError.ErrorType.NONE -> return
-        }
+        if( error.type != DisplayableError.ErrorType.NONE )
+            Toast.makeText(this, error.message, Toast.LENGTH_LONG).show()
     }
 }

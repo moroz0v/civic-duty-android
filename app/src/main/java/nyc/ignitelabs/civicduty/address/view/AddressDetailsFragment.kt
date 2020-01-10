@@ -9,11 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import nyc.ignitelabs.civicduty.R
-import nyc.ignitelabs.civicduty.databinding.FragmentAddressDetailsBinding
 import nyc.ignitelabs.civicduty.address.viewmodel.AddressViewModel
+import nyc.ignitelabs.civicduty.databinding.FragmentAddressDetailsBinding
 
 class AddressDetailsFragment : Fragment() {
-    val vm: AddressViewModel by activityViewModels()
+    private val vm: AddressViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,8 +31,8 @@ class AddressDetailsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        vm.representatives.observe(viewLifecycleOwner, Observer {
-            val reps = it
+        vm.reps.observe(viewLifecycleOwner, Observer {
+            val k = it
         })
     }
 }
